@@ -66,6 +66,7 @@
         margin-left:0;
         border-bottom:1px solid #fff;
         text-align: center;
+        display: block;
          
       }
 
@@ -230,7 +231,8 @@
       #box03{
         padding-bottom:70px;
       }
-                  
+
+
       #gallery{
         width:100%;
         position:relative;
@@ -592,7 +594,7 @@ p.next{
 
 @media screen and (max-width:980px){
   #modal{
-    display:block;
+    display:none;
     padding:6.66vh 5vw 3.333vh;
     box-sizing: border-box;
   }
@@ -635,7 +637,7 @@ p.next{
   }
   #modal>section>div>dl{
     position:absolute;
-    bottom:3.333vh;
+    bottom:6.66vh;
     left:10vw;
     background-color: pink;
     width:80vw;
@@ -653,6 +655,7 @@ p.next{
   #modal>section>div>dl>dd{
     float:none;
     width:auto;
+    border-bottom: 1px solid #aaa;
     font-size:1.665vh;
     padding-bottom:5px;
     margin-bottom:5px;

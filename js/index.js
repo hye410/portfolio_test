@@ -1,3 +1,76 @@
+import $ from 'jquery'
+
+$(function(){
+  let windowW = $(window).width()
+  // console.log(windowW)
+  if(windowW >= 1160){
+    nav();
+    submenu()
+  }
+  else if(windowW < 1159 && windowW >= 980){
+    nav();
+    submenu()
+  }
+  else if(windowW < 979 && windowW >= 580){
+    tNav()
+  }
+  else if(windowW < 579){
+    tNav()
+  }
+  
+  //공통
+
+  //reset
+
+
+})
+
+//web용 nav
+function nav(){
+  $('nav li>a').on('click',function(e){
+    const navA = $(this).attr('href');
+    const aPos = $(navA).offset().top;
+    const headerHeight = $('header').innerHeight();
+    $('html,body').animate({scrollTop:aPos - headerHeight},800)
+    return false;
+  })
+}
+
+//테블릿,모바일용
+function tNav(){
+  let navW = $('nav').width()
+  // .btn click
+  $('header .btn').on('click',function(e){
+    $(this).hide();
+    $('nav').animate({left:0},500)
+  })
+    // scroll
+    $('nav li>a').on('click',function(e){
+      const tnavA = $(this).attr('href');
+      const aPos = $(tnavA).offset().top;
+      const headerHeight = $('header').innerHeight();
+      $('html,body').animate({scrollTop:aPos - headerHeight},800);
+      $('nav').css('left','-'+navW+'px');
+      $('header p.btn').show();
+      return false;
+    })
+
+    // close
+    $('nav p.close').on('click',function(e){
+      $('nav').css('left','-'+navW+'px');
+      $('header .btn').show();
+    })
+  }
+
+  function submenu(){
+    $('#submenu li>a').on('click',function(e){
+      const href = $(this).attr('href');
+      const lTop = $(href).offset().top;
+      $('html,body').animate({scrollTop:lTop},300);
+    })
+  }
+
+
 // DOM object
 const h4 = document.querySelector('#modal h4');
 const img = document.querySelector('#modal figure>img');
